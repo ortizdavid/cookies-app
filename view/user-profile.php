@@ -1,8 +1,8 @@
 <?php
     require_once '../src/User.php';
     require_once '../src/Auth.php';
-    Auth::reconizeSession();
-    $currentUser = User::getUserData($_SESSION['username'], $_SESSION['password']);
+    Auth::verifyCookie();
+    $currentUser = User::getUserData($_COOKIE['username'], $_COOKIE['password']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,5 @@
 
     <p>Usuário: <?=$currentUser->username;?><br></p>
     <p>Perfil: <?=$currentUser->role;?><br></p>
-    <p>ID de Sessão: <?=session_id();?></p>
 </body>
 </html>

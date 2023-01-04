@@ -1,6 +1,6 @@
-CREATE DATABASE session_db;
+CREATE DATABASE cookie_db;
 
-USE session_db;
+USE cookie_db;
 
 CREATE TABLE  users(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

@@ -1,13 +1,15 @@
 <?php
 require_once 'User.php';
-session_start();
+require_once 'Cookie.php';
+
 class Auth
 {
     public static function login(string $userName, string $password) : void
     {
-        if (User::exists($userName, $password)) {
-            $_SESSION['username'] = $userName;
-            $_SESSION['password'] = $password;
+        if (User::exists($userName, $password)) 
+        {
+            Cookie::addCookie('username', $userName);
+            Cookie::addCookie('password', $password);
             header("location: user-profile.php");
         }
         else {
@@ -17,13 +19,15 @@ class Auth
 
     public static function logout() : void
     {
-        session_destroy();
+        Cookie::removeCookie("username");
+        Cookie::removeCookie("password");
         header("location: login.php");
     }
 
-    public static function reconizeSession() : void
+    public static function verifyCookie() : void
     {
-        if(!isset($_SESSION['username'])){
+        if(Cookie::checkCookie('username') && Cookie::checkCookie('password'))
+        {
             Auth::logout();
         }
     }

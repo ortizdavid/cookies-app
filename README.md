@@ -1,10 +1,8 @@
-# Testing Sessions 
+# Testing Cookies
 
 ## Examples
 
-- User Login and Logout
-- CSRF Attacks
+- Login with Authentication
 
 # Languages: 
-- SQL
 - PHP

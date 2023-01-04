@@ -1,5 +1,6 @@
 <?php 
 require_once '../src/Auth.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
